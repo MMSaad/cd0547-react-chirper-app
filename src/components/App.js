@@ -9,7 +9,17 @@ import TweetPage from "./TweetPage";
 import Nav from "./Nav";
 const App = (props) => {
   useEffect(() => {
-    props.dispatch(handleInitialData());
+    setInterval(() => {
+      console.log("timer");
+      fetch("https://localhost:7285/home/api").then((response) => {
+        //console.log(response);
+        response.json().then((result) => {
+          //console.log(result);
+          props.dispatch(handleInitialData(result));
+        });
+      });
+      //GET and update store
+    }, 5000);
   }, []);
   return (
     <Fragment>
@@ -28,10 +38,9 @@ const App = (props) => {
   );
 };
 
-const mapStateToProps = ({ authUser }) => {
-  console.log(authUser);
+const mapStateToProps = ({}) => {
   return {
-    loading: authUser == null,
+    loading: false,
   };
 };
 

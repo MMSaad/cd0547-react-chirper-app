@@ -1,8 +1,8 @@
-export const RECEIVE_USERS = "RECEIVE_USERS";
+export const RECEIVE_UHF = "RECEIVE_UHF";
 
-export const receiveUsers = (users) => {
+export const receiveUhf = (uhf) => {
   return {
-    type: RECEIVE_USERS,
-    users,
+    type: RECEIVE_UHF,
+    uhf,
   };
 };
