@@ -8,6 +8,7 @@ import reducers from "./reducers";
 import middlewares from "./middlewares";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const store = createStore(reducers, middlewares);
 

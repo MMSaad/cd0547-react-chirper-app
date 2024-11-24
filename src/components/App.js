@@ -10,7 +10,12 @@ import Nav from "./Nav";
 const App = (props) => {
   useEffect(() => {
     setInterval(() => {
-      console.log("timer");
+      loadData();
+    }, 5000);
+  }, []);
+
+  var loadData = () => {
+    try {
       fetch("https://localhost:7285/home/api").then((response) => {
         //console.log(response);
         response.json().then((result) => {
@@ -18,14 +23,16 @@ const App = (props) => {
           props.dispatch(handleInitialData(result));
         });
       });
-      //GET and update store
-    }, 5000);
-  }, []);
+      } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <Fragment>
       <LoadingBar />
       <div className="container">
-        <Nav />
+        <img src="newlogo.png" alt="logo" className="new-logo" />
+        {/* <Nav /> */}
         {props.loading === true ? null : (
           <Routes>
             <Route path="/" exact element={<Dashboard />} />

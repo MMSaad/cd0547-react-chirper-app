@@ -4,48 +4,50 @@ import Uhf from "./Tweet";
 
 const Dashboard = (props) => {
   return (
-    <div className="container">
-      <h1 className="center">UHF</h1>
+    <div className="row">
+      <h1 className="center"> بوابة الدخول - UHF</h1>
       <div className="tweet-info">
-        <div className="tweet">
+        <div>
           <div className="row">
             <div className="col-3">
               <div className="card">
                 <div className="card-body">
-                  <h1>Scanned</h1>
-                  <h6>{props.uhf?.scaned}</h6>
+                  <h1>عمليات المسح</h1>
+                  <h6 className="counter">{props.uhf?.scaned}</h6>
                 </div>
               </div>
             </div>
             <div className="col-3">
               <div className="card">
                 <div className="card-body">
-                  <h1>Today Unique</h1>
-                  <h6>{props.uhf?.totalToday}</h6>
+                  <h1>الاشخاص</h1>
+                  <h6 className="counter">{props.uhf?.totalToday}</h6>
                 </div>
               </div>
             </div>
             <div className="col-3">
               <div className="card">
                 <div className="card-body">
-                  <h1>Two times</h1>
-                  <h6>{props.uhf?.twoTimesToday}</h6>
+                  <h1>تم المسح مرتين</h1>
+                  <h6 className="counter">{props.uhf?.twoTimesToday}</h6>
                 </div>
               </div>
             </div>
             <div className="col-3">
               <div className="card">
                 <div className="card-body">
-                  <h1>Three Times</h1>
-                  <h6>{props.uhf?.threeTimesToday}</h6>
+                  <h1>تم المسح ثلاث مرات</h1>
+                  <h6 className="counter">{props.uhf?.threeTimesToday}</h6>
                 </div>
               </div>
             </div>
             <div className="col-3">
               <div className="card">
                 <div className="card-body">
-                  <h1>More than Three times</h1>
-                  <h6>{props.uhf?.moreThanThreeTimesToday}</h6>
+                  <h1>تم المسح اكثر من ثلاث مرات</h1>
+                  <h6 className="counter">
+                    {props.uhf?.moreThanThreeTimesToday}
+                  </h6>
                 </div>
               </div>
             </div>
