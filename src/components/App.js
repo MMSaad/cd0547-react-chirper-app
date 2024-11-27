@@ -1,12 +1,16 @@
 import { connect } from "react-redux";
 import handleInitialData from "../actions/shared";
 import { useEffect, Fragment } from "react";
-import Dashboard from "./Dashboard";
+import Dashboard from "./Uhf";
 import LoadingBar from "react-redux-loading-bar";
 import NewTweet from "./NewTweet";
 import { Routes, Route } from "react-router-dom";
 import TweetPage from "./TweetPage";
+import MainDashboard from "./Dashboard";
 import Nav from "./Nav";
+import Ble from "./Ble";
+import Images from "./Images";
+import Qr from "./Qr";
 const App = (props) => {
   useEffect(() => {
     setInterval(() => {
@@ -36,7 +40,10 @@ const App = (props) => {
         {props.loading === true ? null : (
           <Routes>
             <Route path="/" exact element={<Dashboard />} />
-            <Route path="/new" element={<NewTweet />} />
+            <Route path="/full" exact element={<MainDashboard />} />
+            <Route path="/ble" element={<Ble />} />
+            <Route path="/images" element={<Images />} />
+            <Route path="/qr" element={<Qr />} />
             <Route path="/tweet/:id" element={<TweetPage />} />
           </Routes>
         )}

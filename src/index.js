@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./components/App";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import reducers from "./reducers";
+import reducers from "./reducers/ble";
 import middlewares from "./middlewares";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";

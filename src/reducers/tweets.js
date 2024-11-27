@@ -1,43 +1,25 @@
-import { RECEIVE_TWEETS, TOGGLE_TWEET, ADD_TWEET } from "../actions/tweets";
+import { RECEIVE_BLE } from "../actions/ble";
 
-function tweets(state = {}, action) {
+function ble(
+  state = {
+    totalToday: 0,
+    twoTimesToday: 0,
+    threeTimesToday: 0,
+    moreThanThreeTimesToday: 0,
+    scaned: 0,
+  },
+  action
+) {
+  console.log(action);
   switch (action.type) {
-    case RECEIVE_TWEETS:
+    case RECEIVE_BLE:
       return {
         ...state,
-        ...action.tweets,
-      };
-    case TOGGLE_TWEET:
-      return {
-        ...state,
-        [action.id]: {
-          ...state[action.id],
-          likes:
-            action.hasLiked === true
-              ? state[action.id].likes.filter((uid) => uid !== action.authUser)
-              : state[action.id].likes.concat([action.authUser]),
-        },
-      };
-    case ADD_TWEET:
-      let replyingTo = {};
-      if (action.tweet.replyingTo !== null) {
-        replyingTo = {
-          [action.tweet.replyingTo]: {
-            ...state[action.tweet.replyingTo],
-            replies: state[action.tweet.replyingTo].replies.concat([
-              action.tweet.id,
-            ]),
-          },
-        };
-      }
-      return {
-        ...state,
-        [action.tweet.id]: action.tweet,
-        ...replyingTo,
+        ...action.ble,
       };
     default:
       return state;
   }
 }
 
-export default tweets;
+export default ble;

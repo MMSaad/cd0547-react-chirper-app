@@ -6,3 +6,13 @@ export const receiveUhf = (uhf) => {
     uhf,
   };
 };
+
+
+export const RECEIVE_IMAGES = "RECEIVE_IMAGES";
+
+export const receiveImages = (images) => {
+  return {
+    type: RECEIVE_IMAGES,
+    images,
+  };
+};

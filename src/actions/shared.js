@@ -1,6 +1,6 @@
 
-import { receiveUhf } from "./users";
-import { receiveTweets } from "./tweets";
+import { receiveImages, receiveUhf } from "./users";
+import { receiveBle } from "./ble";
 // import setAuthUser from "./authUser";
 import { showLoading, hideLoading } from "react-redux-loading-bar";
 
@@ -9,9 +9,10 @@ import { showLoading, hideLoading } from "react-redux-loading-bar";
 const handleReceiveData = (result) => {
   return (dispatch) => {
     dispatch(showLoading());
-    //console.log(result.uhf);
+    console.log(result.images);
      dispatch(receiveUhf(result.uhf));
-    //  dispatch(receiveTweets(result.ble));
+    dispatch(receiveBle(result.ble));
+        dispatch(receiveImages(result.images));
      dispatch(hideLoading());
   };
 };
