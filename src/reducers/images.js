@@ -1,4 +1,4 @@
-import { RECEIVE_IMAGES } from "../actions/users";
+import {  RECEIVE_IMAGES } from "../actions/users";
 
 const images = (
   state = [],

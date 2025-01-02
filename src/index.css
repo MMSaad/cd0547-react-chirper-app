@@ -160,10 +160,11 @@ a {
 }
 .new-logo{
   max-height: 75px;
-      background-color: white;
+  
         padding: 8px;
         border-radius: 8px;
         margin-bottom: 16px;
+            position: absolute;
 }
 .card{
       margin: 8px;

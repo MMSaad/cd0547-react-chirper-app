@@ -13,6 +13,8 @@ import Images from "./Images";
 import Qr from "./Qr";
 import Qr2 from "./Qr2";
 import Qr3 from "./Qr3";
+
+
 const App = (props) => {
   useEffect(() => {
     setInterval(() => {
@@ -20,13 +22,25 @@ const App = (props) => {
     }, 2000);
   }, []);
 
+  const playAudio = () => {
+  try {
+    const audio = new Audio("./error.mp3");
+    audio.play();
+  } catch (e) {
+    console.log(e);
+  }
+};
+
   var loadData = () => {
     try {
-      fetch("/api/data").then((response) => {
+      fetch("https://localhost:7284/api/data").then((response) => {
         //console.log(response);
         response.json().then((result) => {
           //console.log(result);
           props.dispatch(handleInitialData(result));
+          if (result.alerts !== undefined ) {
+            playAudio();
+          }
         });
       });
     } catch (e) {
@@ -47,8 +61,8 @@ const App = (props) => {
 
           {props.loading === true ? null : (
             <Routes>
-              <Route path="/" exact element={<Dashboard />} />
-              <Route path="/full" exact element={<MainDashboard />} />
+              <Route path="/" exact element={<MainDashboard />} />
+              <Route path="/full" exact element={<Dashboard />} />
               <Route path="/ble" element={<Ble />} />
               <Route path="/images" element={<Images />} />
               <Route path="/qr" element={<Qr />} />

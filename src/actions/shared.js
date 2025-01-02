@@ -1,5 +1,5 @@
 
-import { receiveImages, receiveUhf } from "./users";
+import { receiveEmployees, receiveImages, receiveUhf } from "./users";
 import { receiveBle } from "./ble";
 // import setAuthUser from "./authUser";
 import { showLoading, hideLoading } from "react-redux-loading-bar";
@@ -12,7 +12,8 @@ const handleReceiveData = (result) => {
     console.log(result.images);
      dispatch(receiveUhf(result.uhf));
     dispatch(receiveBle(result.ble));
-        dispatch(receiveImages(result.images));
+    dispatch(receiveImages(result.pilgrims));
+      dispatch(receiveEmployees(result.employees));
      dispatch(hideLoading());
   };
 };

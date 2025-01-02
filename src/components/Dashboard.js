@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import Dashboard from "./Uhf";
 import Ble from "./Ble";
 import Images from "./Images";
+import Employees from "./Employees";
 
 const MainDashboard = (props) => {
   return (
@@ -12,19 +13,27 @@ const MainDashboard = (props) => {
       <div className="col-6">
         <Ble />
       </div>
-      <div className="col-12">
-        <Images />
+      <div className="row">
+        <div className="col-6">
+          <h1 className="main-header">  الحجاج</h1>
+          <Images />
+        </div>
+        <div className="col-6">
+          <h1 className="main-header">  الموظفين</h1>
+          <Employees />
+        </div>
       </div>
     </div>
   );
 };
 
-const mapStateToProps = ({ uhf, ble, images }) => {
-  console.log(uhf);
+const mapStateToProps = ({ uhf, ble, images,employees }) => {
+  console.log(employees);
   return {
     uhf,
     ble,
     images,
+    employees,
   };
 };
 

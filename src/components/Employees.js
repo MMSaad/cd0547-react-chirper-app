@@ -1,13 +1,12 @@
 import { connect } from "react-redux";
 
-const Images = (props) => {
+const Employees = (props) => {
   return (
     <div className="row">
- 
       <div className="">
         <div>
           <div className="row">
-            {props.images.map((image) => (
+            {props.employees.map((image) => (
               <div key={image?.date} className="col-6 slim">
                 <div className="card ">
                   <div className="card-body slim">
@@ -74,11 +73,11 @@ const Images = (props) => {
   );
 };
 
-const mapStateToProps = ({ images, ble }) => {
-  console.log(images, ble);
+const mapStateToProps = ({  employees }) => {
+  console.log(employees);
   return {
-    images,
+    employees,
   };
 };
 
-export default connect(mapStateToProps)(Images);
+export default connect(mapStateToProps)(Employees);
