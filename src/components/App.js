@@ -3,11 +3,9 @@ import handleInitialData from "../actions/shared";
 import { useEffect, Fragment } from "react";
 import Dashboard from "./Uhf";
 import LoadingBar from "react-redux-loading-bar";
-import NewTweet from "./NewTweet";
 import { Routes, Route } from "react-router-dom";
 import TweetPage from "./TweetPage";
 import MainDashboard from "./Dashboard";
-import Nav from "./Nav";
 import Ble from "./Ble";
 import Images from "./Images";
 import Qr from "./Qr";
@@ -17,28 +15,34 @@ import Qr3 from "./Qr3";
 
 const App = (props) => {
   useEffect(() => {
-    setInterval(() => {
-      loadData();
-    }, 2000);
-  }, []);
+    const interval = setInterval(() => {
+ loadData();
+    }, 1000);
+
+    // Cleanup the interval on unmount or when dependencies change
+    return () => clearInterval(interval);
+  }, []); // Empty dependency array ensures this runs only once
+
 
   const playAudio = () => {
-  try {
-    const audio = new Audio("./error.mp3");
-    audio.play();
-  } catch (e) {
-    console.log(e);
-  }
-};
+    try {
+      const audio = new Audio("./error.mp3");
+      audio.play();
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   var loadData = () => {
     try {
-      fetch("https://localhost:7284/api/data").then((response) => {
+      //https://localhost:7284
+      fetch("/api/data").then((response) => {
         //console.log(response);
+        console.log("interval with data");
         response.json().then((result) => {
           //console.log(result);
           props.dispatch(handleInitialData(result));
-          if (result.alerts !== undefined ) {
+          if (result.uhf.alerts > 0) {
             playAudio();
           }
         });
@@ -49,14 +53,26 @@ const App = (props) => {
   };
   return (
     <Fragment>
-      <LoadingBar />
+
       <div>
-        <div className="row white-bar">
+        <div className="row ">
           <div>
-            <img src="newlogo.png" alt="logo" className="new-logo" />
+            <div className="row main-row">
+              <div className="col-4">
+                <img src="newlogo.png" alt="logo" className="new-logo" />
+              </div>
+              <div className="col-4">
+              <h2>مخيم تجريبي</h2>
+                </div>
+              <div className="col-4">
+                  {props.uhf.alerts > 0 && (  
+                <div className="alert alert-danger">دخول غير مصرح به</div>
+                  )} 
+              </div>
+            </div>
           </div>
         </div>
-        <div className="container">
+        <div className="row main-content">
           {/* <Nav /> */}
 
           {props.loading === true ? null : (
@@ -77,8 +93,9 @@ const App = (props) => {
   );
 };
 
-const mapStateToProps = ({}) => {
+const mapStateToProps = ({ uhf }) => {
   return {
+    uhf,
     loading: false,
   };
 };

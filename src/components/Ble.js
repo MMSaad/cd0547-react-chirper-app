@@ -69,7 +69,7 @@ const Ble = (props) => {
 };
 
 const mapStateToProps = ({ ble, users,tweets }) => {
-  console.log(ble, users, tweets);
+ 
   return {
     ble,
   };

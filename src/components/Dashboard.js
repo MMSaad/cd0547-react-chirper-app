@@ -7,33 +7,28 @@ import Employees from "./Employees";
 const MainDashboard = (props) => {
   return (
     <div className="row">
-      <div className="col-6">
-        <Dashboard />
+      <div className="col-12">
+            <Dashboard />
       </div>
-      <div className="col-6">
-        <Ble />
-      </div>
-      <div className="row">
+      <div className="row add-margin">
         <div className="col-6">
-          <h1 className="main-header">  الحجاج</h1>
-          <Images />
+              <Images />
         </div>
         <div className="col-6">
-          <h1 className="main-header">  الموظفين</h1>
-          <Employees />
+              <Employees />
         </div>
       </div>
     </div>
   );
 };
 
-const mapStateToProps = ({ uhf, ble, images,employees }) => {
-  console.log(employees);
+const mapStateToProps = ({ uhf, ble, images,employees,capacity }) => {
   return {
     uhf,
     ble,
     images,
     employees,
+    capacity
   };
 };
 

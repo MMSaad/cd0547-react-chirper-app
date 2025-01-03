@@ -10,7 +10,7 @@ const Qr2 = () => {
   useEffect(() => {
     doEncrypt();
     setInterval(() => {
-      console.log("Encrypting");
+  
       doEncrypt();
     }, 5000);
   }, []);
@@ -19,7 +19,7 @@ const Qr2 = () => {
     var key = CryptoJS.enc.Utf8.parse(secret);
     var iv = CryptoJS.lib.WordArray.create(key.words.slice(0, 4)); // 16 bytes IV
 
-    console.log("IV : " + CryptoJS.enc.Base64.stringify(iv));
+
 
     // Encrypt the plaintext
     var cipherText = CryptoJS.AES.encrypt(plaintext, key, {

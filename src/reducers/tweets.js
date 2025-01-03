@@ -10,7 +10,7 @@ function ble(
   },
   action
 ) {
-  console.log(action);
+ 
   switch (action.type) {
     case RECEIVE_BLE:
       return {

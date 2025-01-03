@@ -25,3 +25,16 @@ export const receiveEmployees = (employees) => {
     employees,
   };
 };
+
+export const RECEIVE_CAPACITY = "RECEIVE_CAPACITY";
+
+export const receiveCapacity = (capacity) => {
+  return {
+    type: RECEIVE_CAPACITY,
+    capacity,
+  };
+};
+
+
+
+;

@@ -10,7 +10,7 @@ const uhf = (
   },
   action
 ) => {
-  //console.log(action,action.uhf);
+  
   switch (action.type) {
     case RECEIVE_UHF:
       return {
