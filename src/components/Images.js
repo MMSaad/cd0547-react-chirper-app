@@ -53,7 +53,7 @@ const Images = (props) => {
             <div className="card">
               <div className="card-body  small-card-body">
                 <div className="row more-icon-bar">
-                  <h1 className="header">تم المسح اكثر من ثلاث </h1>
+                  <h1 className="header">  اكثر من ثلاث </h1>
 
                   <div className="col-12">
                     <h6 className="counter">
@@ -71,20 +71,8 @@ const Images = (props) => {
             <div key={image?.date} className="col-6 slim-bar slim">
               <div className="card pilgrim-card">
                 <div className="card-body slim small-card-body">
-                  <img
-                    className="pilgrim-image"
-                    src={image?.tag + ".jpg"}
-                    // onError="this.src='persons.svg'; this.onerror=null;"
-                    alt={image?.name}
-                  />
-                  <h6 className="pilgrim-name">{image?.name}</h6>
-
-                  <h6 className="color-header">
-                    {image?.groupName} - {image?.packageName} -{" "}
-                    {image?.countryName}
-                  </h6>
                   <div className="row">
-                    <div className="col-6 left-align">
+                    <div className="col-3">
                       <img
                         className="pilgrim-nationality"
                         src={
@@ -93,13 +81,31 @@ const Images = (props) => {
                         alt={image?.countryName}
                       />
                     </div>
-                    <div className="col-6 right-align">
+                    <div className="col-6">
+                      <img
+                        className="pilgrim-image"
+                        src={image?.tag + ".jpg"}
+                        // onError="this.src='persons.svg'; this.onerror=null;"
+                        alt={image?.name}
+                      />
+                    </div>
+                    <div className="col-3">
                       <img
                         className="pilgrim-company"
                         src={image?.companyCode + ".png"}
                         alt={image?.companyName}
                       />
                     </div>
+                  </div>
+
+                  <h6 className="pilgrim-name">{image?.name}</h6>
+
+                  <h6 className="color-header">
+                    {image?.groupName} - {image?.packageName} -{" "}
+                    {image?.countryName}
+                  </h6>
+                  <div className="row">
+
 
                     <div className="count">
                       <div className="row count-holder">

@@ -26,8 +26,10 @@ const App = (props) => {
 
   const playAudio = () => {
     try {
-      const audio = new Audio("./error.mp3");
-      audio.play();
+      // const audio = new Audio("./error.wav");
+      // audio.play();
+      const audio2 = new Audio("../../error.wav");
+      audio2.play();
     } catch (e) {
       console.log(e);
     }

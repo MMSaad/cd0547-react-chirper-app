@@ -43,7 +43,7 @@ function encrypt(plaintext, secret) {
           Random1: Math.random(),
           Random2: Math.random(),
           Random3: Math.random(),
-          Tag: "E28011704000021BACBE7D28",
+          Tag: "E28011704000021BACBFA5C6",
         }),
         "YWhtb3VkbWFobW91ZG1haA=="
       )

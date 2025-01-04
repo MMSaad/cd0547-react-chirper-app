@@ -42,7 +42,7 @@ const Qr2 = () => {
           Random1: Math.random(),
           Random2: Math.random(),
           Random3: Math.random(),
-          Tag: "E28011704000021BACBE6BD8",
+          Tag: "E28011704000021BACBDB16B",
         }),
         "YWhtb3VkbWFobW91ZG1haA=="
       )
