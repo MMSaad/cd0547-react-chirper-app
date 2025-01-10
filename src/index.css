@@ -179,7 +179,34 @@ font-family: Cairo;
         background-color: white;
           
 }
-
+.occupancy{
+  background: #717108;
+    color: white;
+    padding: 16px;
+    text-align: center;
+    border-radius: 8px;
+    margin: 16px;;
+}
+.entry {
+  background: #087143;
+  color: white;
+  padding: 16px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 16px;
+  ;
+}
+.large-counter{
+      font-size: 60px;
+}
+.exit {
+  background: #710808;
+  color: white;
+  padding: 16px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 16px;
+}
 .card{
   border: 0px;
   border-radius: 10px!important;
